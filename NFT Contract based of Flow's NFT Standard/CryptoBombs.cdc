@@ -46,6 +46,12 @@ pub contract CryptoPoops: NonFungibleToken {
       return (&self.ownedNFTs[id] as &NonFungibleToken.NFT?)!
     }
 
+    pub fun borrowAuthNFT(id: UInt64): &NFT {
+      let ref = (&self.ownedNFTs[id] as auth &NonFungibleToken.NFT?)!
+      return ref as! &NFT
+    }
+
+
     init() {
       self.ownedNFTs <- {}
     }
