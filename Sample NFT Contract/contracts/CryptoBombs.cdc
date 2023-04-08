@@ -9,10 +9,6 @@ pub contract CryptoBombs {
         }
     }
 
-    pub fun createNFT(): @NFT {
-        return <- create NFT()
-    }
-
     pub resource interface CollectionPub {
         pub var ownedNFTs: @{UInt64 : NFT}
         pub fun deposit(token: @NFT)
@@ -48,6 +44,12 @@ pub contract CryptoBombs {
         return <- create Collection()
     }
 
+    pub resource Minter {
+        pub fun createNFT(): @NFT {
+            return <- create NFT()
+        }
+    }
+    
     init() {
         self.totSupply = 0
     }
