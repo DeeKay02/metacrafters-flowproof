@@ -1,0 +1,41 @@
+{
+	"networks": {
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000",
+		"sandboxnet": "access.sandboxnet.nodes.onflow.org:9000",
+		"testnet": "access.devnet.nodes.onflow.org:9000"
+	},
+	"contracts": {
+		"CryptoBombs": "./contracts/CryptoBombs.cdc",
+		"NonFungibleToken": {
+		  "source": "./contracts/NonFungibleToken.cdc",
+		  "aliases": {
+			"testnet": "0x631e88ae7f1d7c20"
+		  }
+		}
+	  },
+	"accounts": {
+		"emulator-account": {
+			"address": "f8d6e0586b0a20c7",
+			"key": "63409396bf6345ecd0351a6d24f45901c1ab6dabbd21ff2796c6eece92c7e953"
+		},
+		"testnet-account": {
+			"address": "0xaa39a4491de4d296",
+			"key": {
+			  "type": "hex",
+			  "index": 0,
+			  "signatureAlgorithm": "ECDSA_P256",
+			  "hashAlgorithm": "SHA3_256",
+			  "privateKey": "7d1e83bbaa8ca44426e443e38fbecd8ac382cd67714f586862093f833bc1b135"
+			}
+		}
+
+	},
+	"deployments": {
+	  "testnet": {
+		"testnet-account": [
+		  "CryptoBombs"
+		]
+	  }
+	}
+}
