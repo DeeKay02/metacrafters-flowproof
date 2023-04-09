@@ -23,11 +23,14 @@ pub contract CryptoPoops: NonFungibleToken {
     }
   }
 
-  pub resource interface Metadata {
+  pub resource interface CollectionPub {
+    pub fun deposit(token: @NonFungibleToken.NFT)
+    pub fun getIDs(): [UInt64]
+    pub fun borrowNFT(id: UInt64): &NonFungibleToken.NFT
     pub fun borrowWholeNFT(id: UInt64): &NFT
   }
 
-  pub resource Collection: NonFungibleToken.Provider, NonFungibleToken.Receiver, NonFungibleToken.CollectionPublic, Metadata {
+  pub resource Collection: NonFungibleToken.Provider, NonFungibleToken.Receiver, NonFungibleToken.CollectionPublic, CollectionPub {
     pub var ownedNFTs: @{UInt64: NonFungibleToken.NFT}
 
     pub fun withdraw(withdrawID: UInt64): @NonFungibleToken.NFT {
